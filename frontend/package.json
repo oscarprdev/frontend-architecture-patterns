@@ -1,0 +1,14 @@
+{
+  "name": "frontend-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "features/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=apps/entry",
+    "build": "npm run build --workspaces"
+  }
+}

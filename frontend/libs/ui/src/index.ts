@@ -1,0 +1,6 @@
+export { default as Button } from './components/ui/button/Button.vue'
+export { default as Input } from './components/ui/input/Input.vue'
+export { default as Label } from './components/ui/label/Label.vue'
+export { default as Badge } from './components/ui/badge/Badge.vue'
+export { default as Separator } from './components/ui/separator/Separator.vue'
+export { default as Textarea } from './components/ui/textarea/Textarea.vue'
