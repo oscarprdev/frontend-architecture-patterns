@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from "zod";
 
-export const transportTypeSchema = z.enum(['FLIGHT', 'TRAIN', 'BUS', 'CAR']);
+export const transportTypeSchema = z.enum(["FLIGHT", "TRAIN", "BUS", "CAR"]);
 export type TransportType = z.infer<typeof transportTypeSchema>;
 
 export const flightSchema = z.object({

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Badge } from '@frontend-app/ui';
-import type { Flight } from '../services';
+import type { Flight } from '../domain';
 
 defineProps<{
   transport?: Flight | null;

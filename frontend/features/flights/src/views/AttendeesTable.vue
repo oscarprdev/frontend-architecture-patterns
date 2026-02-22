@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Attendee } from '../services';
+import type { Attendee } from '../domain';
 import AttendeeRow from './AttendeeRow.vue';
 
 defineProps<{

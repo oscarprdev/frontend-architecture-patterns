@@ -2,10 +2,10 @@ import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
 	schema: '../../../backend/schema.graphql',
-	documents: ['src/services/**/*.graphql', 'src/services/**/*.gql'],
+	documents: ['src/infra/**/*.graphql', 'src/infra/**/*.gql'],
 	ignoreNoDocuments: true,
 	generates: {
-		'./src/services/generated/': {
+		'./src/infra/generated/': {
 			preset: 'client',
 		},
 	},
