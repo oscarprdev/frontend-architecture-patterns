@@ -12,11 +12,11 @@ import {
   attendees,
   transports,
   accommodations,
-  userIdCounter,
-  meetingIdCounter,
-  attendeeIdCounter,
-  transportIdCounter,
-  accommodationIdCounter,
+  incrementUserIdCounter,
+  incrementMeetingIdCounter,
+  incrementAttendeeIdCounter,
+  incrementTransportIdCounter,
+  incrementAccommodationIdCounter,
 } from '../data.js';
 
 export const resolvers = {
@@ -44,7 +44,7 @@ export const resolvers = {
   Mutation: {
     createUser: (_: any, { name, email }: { name: string; email: string }) => {
       const user: User = {
-        id: String(userIdCounter++),
+        id: String(incrementUserIdCounter()),
         name,
         email,
       };
@@ -70,7 +70,7 @@ export const resolvers = {
       { title, date, location }: { title: string; date: string; location: string }
     ) => {
       const meeting: Meeting = {
-        id: String(meetingIdCounter++),
+        id: String(incrementMeetingIdCounter()),
         title,
         date,
         location,
@@ -105,7 +105,7 @@ export const resolvers = {
         throw new Error(`Meeting with id ${meetingId} not found`);
       }
       const attendee: Attendee = {
-        id: String(attendeeIdCounter++),
+        id: String(incrementAttendeeIdCounter()),
         userId,
         meetingId,
       };
@@ -139,7 +139,7 @@ export const resolvers = {
       }
     ) => {
       const transport: Transport = {
-        id: String(transportIdCounter++),
+        id: String(incrementTransportIdCounter()),
         type,
         from,
         to,
@@ -205,7 +205,7 @@ export const resolvers = {
       }
     ) => {
       const accommodation: Accommodation = {
-        id: String(accommodationIdCounter++),
+        id: String(incrementAccommodationIdCounter()),
         name,
         address,
         checkIn,

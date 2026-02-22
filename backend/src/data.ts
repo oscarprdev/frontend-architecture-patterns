@@ -49,3 +49,24 @@ export function setCounters(
   transportIdCounter = transportId;
   accommodationIdCounter = accommodationId;
 }
+
+// Incrementer functions for counters
+export function incrementUserIdCounter(): number {
+  return userIdCounter++;
+}
+
+export function incrementMeetingIdCounter(): number {
+  return meetingIdCounter++;
+}
+
+export function incrementAttendeeIdCounter(): number {
+  return attendeeIdCounter++;
+}
+
+export function incrementTransportIdCounter(): number {
+  return transportIdCounter++;
+}
+
+export function incrementAccommodationIdCounter(): number {
+  return accommodationIdCounter++;
+}
