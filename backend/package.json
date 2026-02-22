@@ -1,0 +1,26 @@
+{
+  "name": "travel-app-backend",
+  "version": "1.0.0",
+  "description": "GraphQL backend for travel app",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "dev": "nodemon --exec tsx src/index.ts",
+    "build": "tsc",
+    "seed": "tsx src/seed.ts"
+  },
+  "keywords": ["graphql", "apollo", "travel"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.10.0",
+    "graphql": "^16.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "nodemon": "^3.0.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.3"
+  }
+}

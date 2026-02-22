@@ -1,0 +1,94 @@
+export const typeDefs = `
+  type User {
+    id: ID!
+    name: String!
+    email: String!
+  }
+
+  type Meeting {
+    id: ID!
+    title: String!
+    date: String!
+    location: String!
+    attendees: [Attendee!]!
+  }
+
+  type Attendee {
+    id: ID!
+    userId: ID!
+    meetingId: ID!
+    user: User!
+    meeting: Meeting!
+    transport: Transport
+    accommodation: Accommodation
+  }
+
+  enum TransportType {
+    FLIGHT
+    TRAIN
+    BUS
+    CAR
+  }
+
+  type Transport {
+    id: ID!
+    type: TransportType!
+    from: String!
+    to: String!
+    departureDate: String!
+    arrivalDate: String!
+  }
+
+  type Accommodation {
+    id: ID!
+    name: String!
+    address: String!
+    checkIn: String!
+    checkOut: String!
+  }
+
+  type Query {
+    users: [User!]!
+    user(id: ID!): User
+    meetings: [Meeting!]!
+    meeting(id: ID!): Meeting
+    attendees: [Attendee!]!
+    attendee(id: ID!): Attendee
+    transports: [Transport!]!
+    transport(id: ID!): Transport
+    accommodations: [Accommodation!]!
+    accommodation(id: ID!): Accommodation
+  }
+
+  type Mutation {
+    createUser(name: String!, email: String!): User!
+    deleteUser(id: ID!): Boolean!
+    
+    createMeeting(title: String!, date: String!, location: String!): Meeting!
+    deleteMeeting(id: ID!): Boolean!
+    
+    addAttendeeToMeeting(userId: ID!, meetingId: ID!): Attendee!
+    removeAttendeeFromMeeting(id: ID!): Boolean!
+    
+    createTransport(
+      type: TransportType!
+      from: String!
+      to: String!
+      departureDate: String!
+      arrivalDate: String!
+    ): Transport!
+    deleteTransport(id: ID!): Boolean!
+    assignTransportToAttendee(attendeeId: ID!, transportId: ID!): Attendee!
+    unassignTransportFromAttendee(attendeeId: ID!): Attendee!
+    
+    createAccommodation(
+      name: String!
+      address: String!
+      checkIn: String!
+      checkOut: String!
+    ): Accommodation!
+    deleteAccommodation(id: ID!): Boolean!
+    assignAccommodationToAttendee(attendeeId: ID!, accommodationId: ID!): Attendee!
+    unassignAccommodationFromAttendee(attendeeId: ID!): Attendee!
+  }
+`;
