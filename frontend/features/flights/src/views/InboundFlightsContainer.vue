@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useInboundFlights } from "../application";
-import { useAttendeesByMeeting } from "../infra";
+import { inboundFlightsQueries } from "../domain";
 import AttendeesSearchBar from "./AttendeesSearchBar.vue";
 import AttendeesTable from "./AttendeesTable.vue";
 
 const DEFAULT_MEETING_ID = "1";
-const inboundFlightsQueries = { attendeesByMeeting: useAttendeesByMeeting };
-const { attendees, loading, error, setMeetingId } =
-  useInboundFlights(inboundFlightsQueries)(DEFAULT_MEETING_ID);
+const { attendees, loading, error, setMeetingId } = useInboundFlights(
+  inboundFlightsQueries,
+)(DEFAULT_MEETING_ID);
 const searchInput = ref(DEFAULT_MEETING_ID);
 
 function onSearch() {
