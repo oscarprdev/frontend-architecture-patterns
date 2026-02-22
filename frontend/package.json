@@ -8,7 +8,10 @@
     "libs/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=apps/entry",
+    "dev": "npm run dev --workspace=apps/app",
     "build": "npm run build --workspaces"
+  },
+  "dependencies": {
+    "graphql": "^16.12.0"
   }
 }

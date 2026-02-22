@@ -1,5 +1,5 @@
 {
-  "name": "@frontend-app/entry",
+  "name": "@frontend-app/app",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -10,6 +10,8 @@
   "dependencies": {
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
+    "@apollo/client": "^3.11.0",
+    "@vue/apollo-composable": "^4.0.0",
     "@frontend-app/flights": "*",
     "@frontend-app/ui": "*"
   },
