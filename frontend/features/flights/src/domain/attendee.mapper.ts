@@ -1,7 +1,7 @@
-import type { GraphQLAttendee } from "../infra";
+import type { AttendeeQueryDto } from "./attendee.dto";
 import { attendeeSchema, type Attendee } from "./attendee.schema";
 
-export function toDomainAttendee(raw: GraphQLAttendee): Attendee {
+export function toDomainAttendee(raw: AttendeeQueryDto): Attendee {
   return attendeeSchema.parse({
     id: raw.id,
     userId: raw.userId,

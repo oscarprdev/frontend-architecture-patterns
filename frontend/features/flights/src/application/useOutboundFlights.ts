@@ -1,24 +1,30 @@
 import { computed, ref } from "vue";
-import { useAttendeesByMeeting } from "../infra";
+import type { OutboundFlightsQueries } from "../domain";
 import { toDomainAttendee } from "../domain";
 
-export function useOutboundFlights(initialMeetingId = "1") {
-  const meetingId = ref(initialMeetingId);
-  const { result, loading, error } = useAttendeesByMeeting(meetingId);
+export function useOutboundFlights(
+  outboundFlightsQueries: OutboundFlightsQueries,
+) {
+  const { attendeesByMeeting } = outboundFlightsQueries;
 
-  const attendees = computed(
-    () => result.value?.meeting?.attendees.map(toDomainAttendee) ?? [],
-  );
+  return (initialMeetingId = "1") => {
+    const meetingId = ref(initialMeetingId);
+    const { result, loading, error } = attendeesByMeeting(meetingId);
 
-  function setMeetingId(id: string) {
-    meetingId.value = id;
-  }
+    const attendees = computed(
+      () => result.value?.meeting?.attendees.map(toDomainAttendee) ?? [],
+    );
 
-  return {
-    attendees,
-    loading,
-    error,
-    meetingId,
-    setMeetingId,
+    function setMeetingId(id: string) {
+      meetingId.value = id;
+    }
+
+    return {
+      attendees,
+      loading,
+      error,
+      meetingId,
+      setMeetingId,
+    };
   };
 }
