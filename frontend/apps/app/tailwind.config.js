@@ -5,6 +5,8 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
     "../../libs/ui/src/**/*.{vue,js,ts,jsx,tsx}",
     "../../features/flights/src/**/*.{vue,js,ts,jsx,tsx}",
+    "../../features/hotels/src/**/*.{vue,js,ts,jsx,tsx}",
+    "../../features/widgets/src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},

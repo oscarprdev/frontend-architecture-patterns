@@ -1,14 +1,20 @@
 <script setup lang="ts">
+import { useWidgets, AttendeeDetail } from "@frontend-app/widgets";
 import type { Attendee } from "../domain";
 import FlightStatusBadge from "./FlightStatusBadge.vue";
 
 defineProps<{
   attendee: Attendee;
 }>();
+
+const { open } = useWidgets();
 </script>
 
 <template>
-  <tr class="hover:bg-neutral-50/50 transition-colors">
+  <tr
+    class="hover:bg-neutral-50/50 transition-colors cursor-pointer"
+    @click="open(AttendeeDetail, { attendeeId: attendee.id }, 'Attendee Details')"
+  >
     <td class="px-6 py-4 text-sm font-medium text-neutral-900">
       {{ attendee.user.name }}
     </td>
