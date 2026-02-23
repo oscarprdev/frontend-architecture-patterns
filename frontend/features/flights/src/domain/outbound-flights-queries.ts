@@ -1,12 +1,8 @@
-import type { ComputedRef, Ref } from "vue";
-import type { AttendeesByMeetingDto } from "./attendee.dto";
+import type { Ref } from "vue";
+import type { AttendeesByMeetingQuery } from "./inbound-flights-queries";
 import { useAttendeesByMeeting } from "../infra";
 
-export interface OutboundFlightsAttendeesByMeetingQuery {
-  result: Ref<AttendeesByMeetingDto | undefined>;
-  loading: Ref<boolean>;
-  error: ComputedRef<string | null>;
-}
+export type OutboundFlightsAttendeesByMeetingQuery = AttendeesByMeetingQuery;
 
 export type OutboundFlightsAttendeesByMeetingQueryFn = (
   meetingId: Ref<string>,

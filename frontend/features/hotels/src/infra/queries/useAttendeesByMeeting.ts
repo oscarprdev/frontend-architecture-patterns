@@ -1,6 +1,6 @@
 import { computed, type Ref } from "vue";
 import { useQuery } from "@vue/apollo-composable";
-import type { HotelsAttendeesByMeetingQuery } from "../../domain/hotels-queries-types";
+import type { HotelsAttendeesByMeetingQuery } from "../../domain";
 import { GetAttendeesByMeetingDocument } from "../generated/graphql";
 
 export function useAttendeesByMeeting(

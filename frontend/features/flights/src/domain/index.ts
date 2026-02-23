@@ -7,6 +7,7 @@ export type { Attendee, Flight, TransportType } from "./attendee.schema";
 export { toDomainAttendee } from "./attendee.mapper";
 export type { AttendeeQueryDto, AttendeesByMeetingDto } from "./attendee.dto";
 export {
+  type AttendeesByMeetingQuery,
   type InboundFlightsAttendeesByMeetingQuery,
   type InboundFlightsQueries,
   inboundFlightsQueries,

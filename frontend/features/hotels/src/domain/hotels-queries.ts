@@ -1,7 +1,20 @@
+import type { ComputedRef, Ref } from "vue";
+import type { AttendeesByMeetingDto } from "./attendee.dto";
 import { useAttendeesByMeeting } from "../infra";
-import type { HotelsQueries } from "./hotels-queries-types";
 
-export { type HotelsAttendeesByMeetingQuery, type HotelsQueries } from "./hotels-queries-types";
+export interface HotelsAttendeesByMeetingQuery {
+  result: Ref<AttendeesByMeetingDto | undefined>;
+  loading: Ref<boolean>;
+  error: ComputedRef<string | null>;
+}
+
+export type HotelsAttendeesByMeetingQueryFn = (
+  meetingId: Ref<string>,
+) => HotelsAttendeesByMeetingQuery;
+
+export interface HotelsQueries {
+  attendeesByMeeting: HotelsAttendeesByMeetingQueryFn;
+}
 
 export const hotelsQueries: HotelsQueries = {
   attendeesByMeeting: useAttendeesByMeeting,
