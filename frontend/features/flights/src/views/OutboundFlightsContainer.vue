@@ -18,28 +18,31 @@ function onSearch() {
 </script>
 
 <template>
-  <div class="space-y-6">
-    <div class="flex flex-col gap-2">
-      <h2 class="text-xl font-semibold text-neutral-900">Outbound Flights</h2>
-      <p class="text-neutral-600 text-sm">
-        Attendees departing after the meeting. Search by meeting ID to load
-        their flight assignments.
-      </p>
-    </div>
-
-    <AttendeesSearchBar
-      v-model="searchInput"
-      :loading="loading"
-      @search="onSearch"
-    />
+  <div class="space-y-8">
+    <section class="rounded-xl bg-white border border-neutral-200 p-6 shadow-sm">
+      <div class="flex flex-col gap-1 mb-4">
+        <h2 class="text-lg font-semibold text-neutral-900">Outbound Flights</h2>
+        <p class="text-neutral-500 text-sm">
+          Attendees departing after the meeting. Search by meeting ID to load
+          their flight assignments.
+        </p>
+      </div>
+      <AttendeesSearchBar
+        v-model="searchInput"
+        :loading="loading"
+        @search="onSearch"
+      />
+    </section>
 
     <div
       v-if="error"
-      class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+      class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
     >
       {{ error }}
     </div>
 
-    <AttendeesTable :attendees="attendees" :loading="loading" />
+    <section class="rounded-xl bg-white border border-neutral-200 overflow-hidden shadow-sm">
+      <AttendeesTable :attendees="attendees" :loading="loading" />
+    </section>
   </div>
 </template>

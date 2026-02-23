@@ -4,6 +4,7 @@ import {
   inboundFlightsComponent,
   outboundFlightsComponent,
 } from '@frontend-app/flights'
+import { hotelsMenuItem } from '@frontend-app/hotels'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,6 +21,10 @@ const router = createRouter({
         { path: 'inbound', component: inboundFlightsComponent },
         { path: 'outbound', component: outboundFlightsComponent },
       ],
+    },
+    {
+      path: hotelsMenuItem.path,
+      component: hotelsMenuItem.component,
     },
   ],
 })

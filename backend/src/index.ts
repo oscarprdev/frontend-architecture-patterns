@@ -2,6 +2,7 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs } from './schema/index.js';
 import { resolvers } from './resolvers/index.js';
+import './seed.js';
 
 const server = new ApolloServer({
   typeDefs,

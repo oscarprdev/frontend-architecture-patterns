@@ -4,12 +4,18 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  server: {
-    proxy: {
-      '/graphql': {
-        target: 'http://localhost:4000',
-        changeOrigin: true,
-        rewrite: (path) => '/',
+  build: {
+    lib: {
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'Hotels',
+      fileName: 'hotels',
+    },
+    rollupOptions: {
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
       },
     },
   },

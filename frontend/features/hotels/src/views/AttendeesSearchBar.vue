@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, Input, Label } from '@frontend-app/ui';
+import { Button, Input, Label } from "@frontend-app/ui";
 
 defineProps<{
   modelValue: string;
@@ -7,17 +7,17 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string];
+  "update:modelValue": [value: string];
   search: [];
 }>();
 
 function onInput(e: Event) {
   const target = e.target as HTMLInputElement;
-  emit('update:modelValue', target.value);
+  emit("update:modelValue", target.value);
 }
 
 function onSearch() {
-  emit('search');
+  emit("search");
 }
 </script>
 
@@ -36,7 +36,7 @@ function onSearch() {
       />
     </div>
     <Button :disabled="loading" @click="onSearch" class="h-10">
-      {{ loading ? 'Searching...' : 'Search' }}
+      {{ loading ? "Searching..." : "Search" }}
     </Button>
   </div>
 </template>

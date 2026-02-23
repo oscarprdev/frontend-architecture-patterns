@@ -1,0 +1,20 @@
+query GetAttendeesByMeeting($meetingId: ID!) {
+  meeting(id: $meetingId) {
+    attendees {
+      id
+      userId
+      meetingId
+      user {
+        name
+        email
+      }
+      accommodation {
+        id
+        name
+        address
+        checkIn
+        checkOut
+      }
+    }
+  }
+}

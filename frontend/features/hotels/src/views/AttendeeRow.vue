@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Attendee } from "../domain";
-import FlightStatusBadge from "./FlightStatusBadge.vue";
+import HotelStatusBadge from "./HotelStatusBadge.vue";
 
 defineProps<{
   attendee: Attendee;
@@ -16,17 +16,19 @@ defineProps<{
       {{ attendee.user.email }}
     </td>
     <td class="px-6 py-4 text-sm text-neutral-600">
-      <template v-if="attendee.transport">
-        <span class="font-medium text-neutral-800">{{ attendee.transport.type }}:</span>
-        {{ attendee.transport.from }} → {{ attendee.transport.to }}
+      <template v-if="attendee.accommodation">
+        <span class="font-medium text-neutral-800">{{ attendee.accommodation.name }}</span>
         <span class="text-neutral-500 text-xs block mt-1">
-          {{ attendee.transport.departureDate }} – {{ attendee.transport.arrivalDate }}
+          {{ attendee.accommodation.address }}
+        </span>
+        <span class="text-neutral-500 text-xs block mt-0.5">
+          {{ attendee.accommodation.checkIn }} – {{ attendee.accommodation.checkOut }}
         </span>
       </template>
       <span v-else class="text-neutral-400 italic">—</span>
     </td>
     <td class="px-6 py-4">
-      <FlightStatusBadge :transport="attendee.transport" />
+      <HotelStatusBadge :accommodation="attendee.accommodation" />
     </td>
   </tr>
 </template>

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useInboundFlights } from "../application";
-import { inboundFlightsQueries } from "../domain";
+import { useHotels } from "../application";
+import { hotelsQueries } from "../domain";
 import AttendeesSearchBar from "./AttendeesSearchBar.vue";
 import AttendeesTable from "./AttendeesTable.vue";
 
 const DEFAULT_MEETING_ID = "1";
-const { attendees, loading, error, setMeetingId } = useInboundFlights(
-  inboundFlightsQueries,
-)(DEFAULT_MEETING_ID);
+const { attendees, loading, error, setMeetingId } = useHotels(hotelsQueries)(
+  DEFAULT_MEETING_ID,
+);
 const searchInput = ref(DEFAULT_MEETING_ID);
 
 function onSearch() {
@@ -21,10 +21,10 @@ function onSearch() {
   <div class="space-y-8">
     <section class="rounded-xl bg-white border border-neutral-200 p-6 shadow-sm">
       <div class="flex flex-col gap-1 mb-4">
-        <h2 class="text-lg font-semibold text-neutral-900">Inbound Flights</h2>
+        <h2 class="text-lg font-semibold text-neutral-900">Attendees & Hotels</h2>
         <p class="text-neutral-500 text-sm">
-          Attendees arriving for the meeting. Search by meeting ID to load their
-          flight assignments.
+          Attendees for the meeting. Search by meeting ID to load their hotel
+          assignments.
         </p>
       </div>
       <AttendeesSearchBar

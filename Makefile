@@ -3,7 +3,7 @@
 # Default target
 help:
 	@echo "Available targets:"
-	@echo "  make start    - Start the backend server"
+	@echo "  make start    - Start the backend and frontend servers"
 	@echo "  make dev      - Start the backend server in development mode (with auto-reload)"
 	@echo "  make seed     - Seed the database with sample data"
 	@echo "  make install   - Install backend dependencies"
@@ -11,8 +11,8 @@ help:
 	@echo "  make help     - Show this help message"
 
 # Start the backend server
-start:
-	cd backend && npm start
+start: seed
+	(cd backend && npm start) & (cd frontend && npm run dev) & wait
 
 # Start the backend server in development mode
 dev:

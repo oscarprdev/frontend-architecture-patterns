@@ -13,6 +13,7 @@
     "@apollo/client": "^3.11.0",
     "@vue/apollo-composable": "^4.0.0",
     "@frontend-app/flights": "*",
+    "@frontend-app/hotels": "*",
     "@frontend-app/ui": "*"
   },
   "devDependencies": {
